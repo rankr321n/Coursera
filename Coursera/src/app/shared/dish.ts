@@ -1,10 +1,12 @@
+import { Comment } from './comment';
 export class Dish {
-    id: string;
-    name: string;
-    image: string;
-    category: string;
-    featured: boolean;
-    label: string;
-    price: string;
-    description: string;
+    id:any;
+    name:any;
+    image: any;
+        category: any;
+        featured: any;
+        label: any;
+        price: any;
+        description:any;
+  comments: Comment[];
 }
