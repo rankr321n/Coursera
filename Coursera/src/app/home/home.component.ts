@@ -5,15 +5,18 @@ import { Promotion } from "../shared/promotion";
 import { PromotionService } from "../services/promotion.service";
 import { LeaderService } from "../services/leader.service";
 import { Leader } from "../shared/leader";
+import { expand } from "../animation/app.animation";
+
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.scss"]
+  styleUrls: ["./home.component.scss"],
+  animations: [expand()]
 })
 export class HomeComponent implements OnInit {
   dish: Dish;
   promotion: Promotion;
-  leader: Leader[];
+  leader: Leader;
   constructor(
     private dishservice: DishService,
     private promotionservice: PromotionService,
@@ -22,9 +25,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     // this.dish = this.dishservice.getFeaturedDish();
-    // this.dishservice.getDishes().then(dishes => (this.dish = dishes));
-    this.promotion = this.promotionservice.getFeaturedPromotion();
-    this.leader = this.lead.getLeaders();
-    console.log(this.leader);
+    this.dishservice.getFeaturedDish().subscribe(dishes => {
+      this.dish = dishes;
+    });
+
+    this.promotionservice.getFeaturedPromotion().subscribe(promotion => {
+      this.promotion = promotion;
+    });
+    this.lead.getLeader().subscribe(leader => {
+      this.leader = leader;
+    });
   }
 }

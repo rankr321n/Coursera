@@ -3,7 +3,7 @@
 
   <div fxFlex="100">
     <div>
-      <!-- <h3>{{dish.name | uppercase}}</h3> -->
+
       <hr>
     </div>
   </div>
@@ -16,7 +16,7 @@
   <div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
     fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px" fxLayoutGap.xs="0">
 
-    <div *ngIf="dish" fxFlex="40">
+    <div fxFlex="40" *ngIf="dish" [@visibility]="visibility">
 
       <mat-card>
         <mat-card-header>
@@ -37,7 +37,7 @@
       </mat-card>
     </div>
 
-    <div *ngIf="dish" fxFlex="40">
+    <div fxFlex="40" *ngIf="dish" [@visibility]="visibility">
       <mat-card>
         <mat-card-header>
           <mat-card-title>

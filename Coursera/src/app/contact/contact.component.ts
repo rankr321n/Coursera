@@ -8,7 +8,7 @@ import { Feedback, ContactType } from "../shared/feedback";
   styleUrls: ["./contact.component.scss"]
 })
 export class ContactComponent implements OnInit {
-  @ViewChild("fform") feedbackFormDirective;
+  // @ViewChild("fform") feedbackFormDirective;
   feedbackForm: FormGroup;
   feedback: Feedback;
   contactType = ContactType;
@@ -99,6 +99,5 @@ export class ContactComponent implements OnInit {
       contacttype: "None",
       message: ""
     });
-    this.feedbackFormDirective.resetForm();
   }
 }
